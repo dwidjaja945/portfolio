@@ -45,13 +45,13 @@ a:focus {
 }
 
 a {
-  color:#21B799;
+  color:#36D9C3;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color:#21B799;
+  color:#36D9C3;
   text-decoration: underline;
 }
 
@@ -72,7 +72,7 @@ a:focus,
 }
 
 .primary {
-	color:#21B799;
+	color:#36D9C3;
 }
 
 /*----------------------
@@ -124,7 +124,7 @@ a:focus,
 	height:52px;
 	outline: none;
 	position: relative;
-	background: #21B799;
+	background: #36D9C3;
 	color: #fff;
 	box-shadow: none;
 	border-radius: 52px;
@@ -179,7 +179,7 @@ a:focus,
 }
 
 .color-bg{
-    background:#21B799;
+    background:#36D9C3;
 }
 
 .dark-bg{
@@ -360,7 +360,7 @@ a:focus,
 }
 
 #main-nav.scrolled .nav #logo a:hover {
-    color:#21B799;
+    color:#36D9C3;
     -webkit-transition:color .2s ease-out;
     transition:color .2s ease-out;
 }
@@ -369,7 +369,7 @@ a:focus,
 ------------------------*/
 
 .jumbotron {
-    background:#21B799;
+    background:#36D9C3;
     color:#fff;
     padding:0;
     margin-bottom:0;
@@ -378,7 +378,7 @@ a:focus,
 }
 
 #home{
-    background-color:#21B799;
+    background-color:#36D9C3;
 }
 
 .jumbotron.bg-image {
@@ -488,7 +488,7 @@ a:focus,
 
 .flex-direction-nav .flex-prev,
 .flex-direction-nav .flex-next{
-    background:#21B799;
+    background:#36D9C3;
     background-image:none;
     display:inline;
     text-indent:0;
@@ -552,7 +552,7 @@ a:focus,
 }
 
 .services .item:hover h2{
-    color:#21B799;
+    color:#36D9C3;
 }
 
 .services .item:hover .icon{
@@ -805,7 +805,7 @@ a:focus,
 }
 
 .project-item .hover-mask p {
-    color:#21B799;
+    color:#36D9C3;
     margin:0;
     font-size:16px;
     line-height:24px;
@@ -907,7 +907,7 @@ a:focus,
     margin:0;
     padding:0;
     padding-top:40px;
-    background:#21B799;
+    background:#36D9C3;
     color:#fff;
     border:none;
     text-align:center;
@@ -1038,7 +1038,7 @@ a:focus,
 .dribbble-button a{
     display:block;
     color:#fff;
-    background:#21B799;
+    background:#36D9C3;
     text-decoration:none;
     padding:25px 0;
     -webkit-transition:background .3s ease-out;
@@ -1152,7 +1152,7 @@ a:focus,
     width:100%;
     font-size:16px;
     text-align:center;
-    color:#21B799;
+    color:#36D9C3;
 }
 
 #contact-form .field-wrap .control-label{
@@ -1212,7 +1212,7 @@ a:focus,
 
 .social-links li a:hover {
     color:#fff;
-    background:#21B799;
+    background:#36D9C3;
 }
 
 /*------------------------
@@ -1387,7 +1387,7 @@ a:focus,
 
 	#main-nav .nav .active a,
 	#main-nav .nav a:hover{
-        color:#21B799; 
+        color:#36D9C3; 
     }
     
     .jumbotron .text-col{

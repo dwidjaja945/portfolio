@@ -1,6 +1,48 @@
 <?php
 require_once('email_config.php');
 require('phpmailer/PHPMailer/PHPMailerAutoload.php');
+
+// Validate POST inputs
+$message = [];
+$output = [
+    'success' => null,
+    'messages' => []
+];
+
+// Sanitize name field
+$message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+if(empty($message['name'])) {
+    $output['success'] = false;
+    $output['messages'][] = 'missing name key';
+}
+
+// Validate email field
+$message['email'] = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+if(empty($message['name'])) {
+    $output['success'] = false;
+    $output['messages'][] = 'missing email key';
+}
+
+// Validate message
+$message['message'] = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+if(empty($message['message'])) {
+    $output['success'] = false;
+    $output['messages'][] = 'missing message key';
+}
+
+// Validate Phone Number
+$message['phone'] = preg_replace('/[^0-9]/' , '', $_POST['phone_number']);
+// if(empty($message['phone_number']) && count($message['phone']) <= 11 ) {
+//     $output['success'] = false;
+//     $output['messages'][] = 'missing phone key';
+// };
+
+if($output['success'] !== null) {
+    http_response_code(400);
+    echo json_encode($output);
+    exit();
+}
+
 $mail = new PHPMailer;
 $mail->SMTPDebug = 3;           // Enable verbose debug output. Change to 0 to disable debugging output.
 
@@ -21,11 +63,12 @@ $options = array(
     )
 );
 $mail->smtpConnect($options);
-$mail->From = 'example@gmail.com';  // sender's email address (shows in "From" field)
-$mail->FromName = 'Example Name';   // sender's name (shows in "From" field)
-$mail->addAddress('recipient1@example.com', 'First Recipient');  // Add a recipient
+
+$mail->From = $message['email'];  // sender's email address (shows in "From" field)
+$mail->FromName = $message['name'];   // sender's name (shows in "From" field)
+$mail->addAddress(EMAIL_USER);  // Add a recipient
 //$mail->addAddress('ellen@example.com');                        // Name is optional
-$mail->addReplyTo('example@gmail.com');                          // Add a reply-to address
+$mail->addReplyTo($message['email'] , $message['name']);                          // Add a reply-to address
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
 
@@ -33,14 +76,16 @@ $mail->addReplyTo('example@gmail.com');                          // Add a reply-
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Here is the subject';
-$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+$message['message'] = nl2br($message['message']);
+$mail->Subject = $message['subject'];
+$mail->Body    = $message['message'];
+$mail->AltBody = htmlentities($message['message']);
 
 if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+     $output['success'] = false;
+     $output['messages'][] = $mail->ErrorInfo;
 } else {
-    echo 'Message has been sent';
+    $output['success'] = true;
 }
+echo json_encode($output);
 ?>

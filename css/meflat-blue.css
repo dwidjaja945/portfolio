@@ -383,7 +383,8 @@ a:focus,
 
 .jumbotron.bg-image {
     position: relative;
-    background:url(/Users/dylanwidjaja/Desktop/lfz/portfolio/background.JPG) 50% 50% no-repeat;
+    /* background:url(/Users/dylanwidjaja/Desktop/lfz/portfolio/background.JPG) 50% 50% no-repeat; */
+    background:url(/Users/dylanwidjaja/Desktop/lfz/portfolio/assets/background_image.jpg) 30% 30% no-repeat;
     background-size: cover;
 }
 

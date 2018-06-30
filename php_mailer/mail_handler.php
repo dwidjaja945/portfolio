@@ -10,7 +10,7 @@ $output = [
 ];
 
 // Sanitize name field
-$message['name'] = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+$message['name'] = filter_var($_POST['contactName'], FILTER_SANITIZE_STRING);
 if(empty($message['name'])) {
     $output['success'] = false;
     $output['messages'][] = 'missing name key';
@@ -24,7 +24,7 @@ if(empty($message['name'])) {
 }
 
 // Validate message
-$message['message'] = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+$message['message'] = filter_var($_POST['comments'], FILTER_SANITIZE_STRING);
 if(empty($message['message'])) {
     $output['success'] = false;
     $output['messages'][] = 'missing message key';
@@ -65,8 +65,9 @@ $options = array(
 $mail->smtpConnect($options);
 
 $mail->From = $message['email'];  // sender's email address (shows in "From" field)
+// $mail->From = 'dylanWidjajaServer@gmail.com';  // sender's email address (shows in "From" field)
 $mail->FromName = $message['name'];   // sender's name (shows in "From" field)
-$mail->addAddress(EMAIL_USER);  // Add a recipient
+$mail->addAddress(EMAIL_TO_ADDRESS);  // Add a recipient
 //$mail->addAddress('ellen@example.com');                        // Name is optional
 $mail->addReplyTo($message['email'] , $message['name']);                          // Add a reply-to address
 //$mail->addCC('cc@example.com');
@@ -75,6 +76,8 @@ $mail->addReplyTo($message['email'] , $message['name']);                        
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
+
+$message['subject'] = "{$message['name']} has sent you a message on your portfolio";
 
 $message['message'] = nl2br($message['message']);
 $mail->Subject = $message['subject'];

@@ -1,5 +1,5 @@
 <?php
-require_once('email_config.php');
+require_once('./email_config.php');
 require('phpmailer/PHPMailer/PHPMailerAutoload.php');
 
 // Validate POST inputs

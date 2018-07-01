@@ -44,9 +44,9 @@ if($output['success'] !== null) {
 };
 
 $mail = new PHPMailer;
-$mail->SMTPDebug = 0;           // Enable verbose debug output. Change to 0 to disable debugging output.
+$mail->SMTPDebug = 3;           // Enable verbose debug output. Change to 0 to disable debugging output.
 
-$mail->isSMTP();                // Set mailer to use SMTP.
+// $mail->isSMTP();                // Set mailer to use SMTP.
 $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers.
 $mail->SMTPAuth = true;         // Enable SMTP authentication
 

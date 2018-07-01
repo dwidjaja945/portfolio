@@ -41,7 +41,7 @@ if($output['success'] !== null) {
     http_response_code(400);
     echo json_encode($output);
     exit();
-}
+};
 
 $mail = new PHPMailer;
 $mail->SMTPDebug = 0;           // Enable verbose debug output. Change to 0 to disable debugging output.

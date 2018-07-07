@@ -562,6 +562,11 @@ a:focus,
     -webkit-transition:-webkit-transform .4s ease-out;
     transition:transform .4s ease-out;
 }
+
+.technologies {
+    height: 100px;
+    margin-bottom: 10px;
+}
 /*----------------------
 -----Featured Project----
 ------------------------*/  
@@ -1404,6 +1409,11 @@ a:focus,
     
     .section-header h1{
         font-size:38px;
+    }
+
+    .technologies-container {
+        width:49%;
+        display:inline-block
     }
 }
 

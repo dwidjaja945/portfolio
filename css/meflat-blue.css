@@ -1413,7 +1413,7 @@ a:focus,
 
     .technologies-container {
         width:49%;
-        display:inline-block
+        display:inline-block;
     }
 }
 

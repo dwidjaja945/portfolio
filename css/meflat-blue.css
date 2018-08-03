@@ -1359,6 +1359,13 @@ a:focus,
 	transform:translateY(0px);
 }
 
+.resume , .resume:hover {
+    color:white;
+    text-decoration: none;
+}
+
+
+
 /*----------------------
 -----Media Queries------
 ------------------------*/    
